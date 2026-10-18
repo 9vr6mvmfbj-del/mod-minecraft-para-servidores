@@ -66,3 +66,13 @@ Actualmente, en muchos servidores medianos y pequeños, la moderación se realiz
 | **RF-02 / RF-05** | `Jugador`, `Rango` | Encapsulamiento, Atributos Privados | Pendiente |
 | **RF-03 / RF-07** | `Sancion` (Abstracta), `Baneo`, `Mute` | Herencia, Clases Abstractas | Pendiente |
 | **RF-04 / RF-08** | `HistorialSanciones`, `GestorJugadores` | Comunicación entre objetos | Pendiente |
+
+##  Conformación del Equipo y Roles (Entrega 2)
+| Nombre Completo | Rol Entrega 2 | Responsabilidades Principales |
+| :--- | :---: | :--- |
+| **David Santiago Díaz** | **Responsable de Diseño (AR)** | Liderar la arquitectura de clases, jerarquías de herencia, interfaces y el Registro de Decisiones v2. |
+| **Juan Felipe Camacho Landazábal** | **Responsable de Diseño (AR)** | Diseñar el diagrama de clases UML actualizado y asegurar la correcta estructuración del código en Java. |
+| **Samuel Zona** | **Responsable de Producto (PO)** | Validar que la implementación de la Entrega 2 cumpla los 10 Requerimientos Funcionales planteados. |
+| **Juan Bello** | **Responsable de Producto (PO)** | Mantener la trazabilidad entre el problema, los requerimientos y los casos de uso del mod. |
+| **Samuel Gacharna** | **Responsable de Calidad (QA)** | Diseñar las excepciones personalizadas, probar casos límite y verificar la persistencia sin errores. |
+| **Miguel** | **Responsable de Integración (GI)** | Controlar la estructura del repositorio en GitHub, verificar commits de cada integrante y gestionar ramas. |
