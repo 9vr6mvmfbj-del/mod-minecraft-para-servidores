@@ -1,0 +1,6 @@
+name: skill-issue-admin
+version: '${version}'
+
+main: ErrorCapa8.skillIssueAdmin.SkillIssueAdmin
+api-version: '26.3'
+load: POSTWORLD
