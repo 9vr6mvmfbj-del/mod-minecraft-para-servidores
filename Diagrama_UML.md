@@ -1,6 +1,5 @@
-´´´mermaid
-    classDiagram
-    
+```mermaid
+classDiagram
     %% INTERFAZ DE PERSISTENCIA
     class IPersistencia {
         <<interface>>
@@ -26,8 +25,7 @@
         #String motivo
         #String adminResponsable
         #boolean activa
-        -int contadorSanciones$
-        +getSiguienteId() int$
+        -int contadorSanciones$+getSiguienteId() int$
         +aplicarEfecto() boolean*
         +revocar(String motivoPerdon) void
         +gettersAndSetters()
