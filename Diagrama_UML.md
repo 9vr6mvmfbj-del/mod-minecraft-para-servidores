@@ -89,9 +89,10 @@ classDiagram
     }
 
     class GestorSanciones {
-        <<nested>>
         aplicarSancion()
         revocarSancion()
+        consultarHistorial()
+        calcularReincidencia()
 }
 
     %% CLASE DE PERSISTENCIA
