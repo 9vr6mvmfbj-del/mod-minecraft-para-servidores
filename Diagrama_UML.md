@@ -15,7 +15,7 @@ classDiagram
         +cargarComprasRango() List~CompraRango~
     }
 
-    %% CLASE ABSTRACTA Y HERENCIA DE SANCIONES (AGRUPADAS)
+    %% CLASE ABSTRACTA Y HERENCIA
     class Sancion {
         <<abstract>>
         #int idSancion
@@ -31,6 +31,12 @@ classDiagram
         +gettersAndSetters()
     }
 
+    class Advertido {
+        -int nivelSeveridad
+        -String advertenciaPrevia
+        +aplicarEfecto() boolean
+    }
+
     class Baneo {
         -int duracionDias
         -boolean esPermanente
@@ -40,12 +46,6 @@ classDiagram
     class Mute {
         -int duracionMinutos
         -String canalRestringido
-        +aplicarEfecto() boolean
-    }
-
-    class Advertido {
-        -int nivelSeveridad
-        -String advertenciaPrevia
         +aplicarEfecto() boolean
     }
 
@@ -79,6 +79,7 @@ classDiagram
         +gettersAndSetters()
     }
 
+    %% NUEVA CLASE: DONACIONES
     class Donacion {
         -int idDonacion
         -double monto
@@ -89,6 +90,7 @@ classDiagram
         +gettersAndSetters()
     }
 
+    %% NUEVA CLASE: COMPRA DE RANGOS
     class CompraRango {
         -int idCompra
         -double precio
@@ -153,7 +155,7 @@ classDiagram
         +SancionInvalidaException(String msg)
     }
 
-    %% JERARQUÍA DE SANCIONES (JUNTAS)
+    %% HERENCIA
     Sancion <|-- Baneo : extends
     Sancion <|-- Mute : extends
     Sancion <|-- Advertido : extends
@@ -161,15 +163,23 @@ classDiagram
     %% IMPLEMENTACION DE INTERFAZ
     IPersistencia <|.. PersistenciaArchivo : implements
 
-    %% RELACIONES GENERALES
+    %% RELACIONES DEL JUGADOR
     Jugador "1" --> "1" Rango : tiene
     Jugador "1" *-- "0..*" Sancion : historial
+
+    %% RELACIONES DE REPORTES
     GestorReportes "1" o-- "0..*" Reporte : administra
     GestorReportes *-- CriterioFiltro : contiene
     GestorJugadores "1" o-- "0..*" Jugador : administra
+
+    %% RELACIONES DE SANCIONES
     GestorSanciones --> Jugador : procesa
     GestorSanciones --> Sancion : administra
+
+    %% NUEVAS RELACIONES: DONACIONES
     Jugador "1" --> "0..*" Donacion : realiza
+
+    %% NUEVAS RELACIONES: COMPRAS DE RANGO
     Jugador "1" --> "0..*" CompraRango : realiza
     CompraRango "0..*" --> "1" Rango : adquiere
 
