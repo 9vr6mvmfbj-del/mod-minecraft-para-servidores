@@ -15,8 +15,8 @@ classDiagram
     class Sancion {
         <<abstract>>
         #int idSancion
-        #String fechaInicio
-        #String fechaFin
+        #Date fechaInicio
+        #Date fechaFin
         #String nickNameJugador
         #String motivo
         #String adminResponsable
@@ -66,8 +66,8 @@ classDiagram
 
     class Reporte {
         -int idReporte
-        -String fechaCreacion
-        -String adminResponsable
+        -Date fechaCreacion
+        -Date adminResponsable
         -String reportado
         -String denunciante
         -String motivo
