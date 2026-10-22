@@ -1,7 +1,6 @@
-
-classDiagram
-    direction TB
-
+´´´mermaid
+    classDiagram
+    
     %% INTERFAZ DE PERSISTENCIA
     class IPersistencia {
         <<interface>>
