@@ -22,6 +22,11 @@ classDiagram
         +revocar(String motivoPerdon) void
         +gettersAndSetters()
     }
+    class Advertido {
+        -int duracionMinutos
+        -String canalRestringido
+        +aplicarEfecto() boolean
+    }
 
     class Baneo {
         -int duracionDias
@@ -34,7 +39,6 @@ classDiagram
         -String canalRestringido
         +aplicarEfecto() boolean
     }
-
     class Advertido {
         -int duracionMinutos
         -String canalRestringido
