@@ -108,6 +108,6 @@ classDiagram
     Jugador "1" --> "1" Rango : tiene
     GestorJugadores "1" o-- "0..*" Jugador : administra
     GestorReportes "1" o-- "0..*" Reporte : administra
-    GestorReportes +-- CriterioFiltro : contiene (nested)
+    GestorReportes *-- CriterioFiltro : contiene (nested)
     GestorJugadores ..> JugadorNoEncontradoException : lanza
     Sancion ..> SancionInvalidaException : lanza
