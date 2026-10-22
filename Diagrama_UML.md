@@ -88,6 +88,12 @@ classDiagram
         +buscarJugador(String nick) Jugador
     }
 
+    class GestorSanciones {
+        <<nested>>
+        aplicarSancion()
+        revocarSancion()
+}
+
     %% CLASE DE PERSISTENCIA
     class PersistenciaArchivo {
         -String rutaCarpeta
