@@ -16,6 +16,7 @@ classDiagram
     }
 
     %% CLASE ABSTRACTA Y HERENCIA
+    
     class Sancion {
         <<abstract>>
         #int idSancion
@@ -25,7 +26,8 @@ classDiagram
         #String motivo
         #String adminResponsable
         #boolean activa
-        -int contadorSanciones$+getSiguienteId() int$
+        -int contadorSanciones$
+        +getSiguienteId() int$
         +aplicarEfecto() boolean*
         +revocar(String motivoPerdon) void
         +gettersAndSetters()
@@ -164,7 +166,7 @@ classDiagram
     IPersistencia <|.. PersistenciaArchivo : implements
 
     %% RELACIONES DEL JUGADOR
-    Jugador "1" --> "1" Rango : tiene
+    Jugador "0..*" --> "1" Rango : tiene
     Jugador "1" *-- "0..*" Sancion : historial
 
     %% RELACIONES DE REPORTES
