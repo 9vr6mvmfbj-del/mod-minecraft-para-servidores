@@ -127,6 +127,7 @@ classDiagram
     Sancion <|-- Advertido : extends
     IPersistencia <|.. PersistenciaArchivo : implements
     Jugador "1" *-- "0..*" Sancion : contiene en historial
+    Sancion "1" *-- "0..*" GestorSanciones : contiene
     Jugador "1" --> "1" Rango : tiene
     GestorJugadores "1" o-- "0..*" Jugador : administra
     GestorReportes "1" o-- "0..*" Reporte : administra
