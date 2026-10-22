@@ -21,7 +21,7 @@ classDiagram
         #String motivo
         #String adminResponsable
         #boolean activa
-        -int contadorSanciones$+getSiguienteId()$ int
+        -int contadorSanciones$+getSiguienteId() int$
         +aplicarEfecto()* boolean
         +revocar(String motivoPerdon) void
         +gettersAndSetters()
@@ -67,7 +67,7 @@ classDiagram
     class Reporte {
         -int idReporte
         -Date fechaCreacion
-        -Date adminResponsable
+        -String adminResponsable
         -String reportado
         -String denunciante
         -String motivo
@@ -86,7 +86,7 @@ classDiagram
     class CriterioFiltro {
         <<nested>>
         -String estadoBuscado
-        -String fechaInicio
+        -Date fechaInicio
         +coincide(Reporte r) boolean
     }
 
