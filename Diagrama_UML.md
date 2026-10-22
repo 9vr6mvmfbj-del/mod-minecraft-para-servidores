@@ -39,11 +39,6 @@ classDiagram
         -String canalRestringido
         +aplicarEfecto() boolean
     }
-    class Advertido {
-        -int duracionMinutos
-        -String canalRestringido
-        +aplicarEfecto() boolean
-    }
 
     %% ENTIDADES DEL DOMINIO
     class Jugador {
