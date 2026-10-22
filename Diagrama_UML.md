@@ -7,12 +7,16 @@ classDiagram
         +cargarJugadores() List~Jugador~
         +guardarSanciones(List~Sancion~ sanciones) void
         +cargarSanciones() List~Sancion~
+        guardarReportes()
+        cargarReportes()
     }
 
     %% CLASE ABSTRACTA Y HERENCIA (POLIMORFISMO)
     class Sancion {
         <<abstract>>
         #int idSancion
+        #fechaInicio
+        #fechaFin
         #String nickNameJugador
         #String motivo
         #String adminResponsable
@@ -56,10 +60,14 @@ classDiagram
         -String nombre
         -int nivelPermiso
         +gettersAndSetters()
+        permisos: Set<String>
+        tienePermiso()
     }
 
     class Reporte {
         -int idReporte
+        -fechaCreacion
+        -adminResponsable
         -String reportado
         -String denunciante
         -String motivo
