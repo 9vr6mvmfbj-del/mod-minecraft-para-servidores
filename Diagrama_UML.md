@@ -17,6 +17,7 @@ classDiagram
         #String motivo
         #String adminResponsable
         #boolean activa
+
         -int contadorSanciones$
         +int getSiguienteId()$
         +boolean aplicarEfecto()*
