@@ -7,16 +7,16 @@ classDiagram
         +cargarJugadores() List~Jugador~
         +guardarSanciones(List~Sancion~ sanciones) void
         +cargarSanciones() List~Sancion~
-        guardarReportes()
-        cargarReportes()
+        +guardarReportes(List~Reporte~ reportes) void
+        +cargarReportes() List~Reporte~
     }
 
     %% CLASE ABSTRACTA Y HERENCIA (POLIMORFISMO)
     class Sancion {
         <<abstract>>
         #int idSancion
-        #fechaInicio
-        #fechaFin
+        #String fechaInicio
+        #String fechaFin
         #String nickNameJugador
         #String motivo
         #String adminResponsable
@@ -59,15 +59,15 @@ classDiagram
     class Rango {
         -String nombre
         -int nivelPermiso
+        -ArrayList~String~ permisos
+        +tienePermiso(String permiso) boolean
         +gettersAndSetters()
-        permisos: Set<String>
-        tienePermiso()
     }
 
     class Reporte {
         -int idReporte
-        -fechaCreacion
-        -adminResponsable
+        -String fechaCreacion
+        -String adminResponsable
         -String reportado
         -String denunciante
         -String motivo
@@ -97,11 +97,11 @@ classDiagram
     }
 
     class GestorSanciones {
-        -Jugador sancionado
-        aplicarSancion()
-        revocarSancion()
-        consultarHistorial()
-        calcularReincidencia()
+        -ArrayList~Sancion~ sancionesActivas
+        +aplicarSancion(Jugador j, Sancion s) void
+        +revocarSancion(int idSancion, String motivo) void
+        +consultarHistorial(Jugador j) List~Sancion~
+        +calcularReincidencia(Jugador j) boolean
     }
 
     %% CLASE DE PERSISTENCIA
@@ -111,6 +111,8 @@ classDiagram
         +cargarJugadores() List~Jugador~
         +guardarSanciones(List~Sancion~ sanciones) void
         +cargarSanciones() List~Sancion~
+        +guardarReportes(List~Reporte~ reportes) void
+        +cargarReportes() List~Reporte~
     }
 
     %% EXCEPCIONES PERSONALIZADAS
@@ -127,12 +129,12 @@ classDiagram
     Sancion <|-- Mute : extends
     Sancion <|-- Advertido : extends
     IPersistencia <|.. PersistenciaArchivo : implements
-    Jugador "1" *-- "0..*" Sancion : contiene en historial
-    Sancion "0.." *-- "1*" GestorSanciones : contiene
-    Jugador "1" *-- "0..*" GestorSanciones : contiene
+    Jugador "1" *-- "0..*" Sancion : contiene historial
     Jugador "1" --> "1" Rango : tiene
     GestorJugadores "1" o-- "0..*" Jugador : administra
     GestorReportes "1" o-- "0..*" Reporte : administra
     GestorReportes *-- CriterioFiltro : contiene (nested)
+    GestorSanciones --> Jugador : procesa
+    GestorSanciones --> Sancion : administra
     GestorJugadores ..> JugadorNoEncontradoException : lanza
     Sancion ..> SancionInvalidaException : lanza
