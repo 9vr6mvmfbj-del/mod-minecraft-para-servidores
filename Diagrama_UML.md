@@ -22,9 +22,10 @@ classDiagram
         +revocar(String motivoPerdon) void
         +gettersAndSetters()
     }
+
     class Advertido {
-        -int duracionMinutos
-        -String canalRestringido
+        -int nivelSeveridad
+        -String advertenciaPrevia
         +aplicarEfecto() boolean
     }
 
