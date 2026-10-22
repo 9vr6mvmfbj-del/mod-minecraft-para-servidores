@@ -17,8 +17,8 @@ classDiagram
         #String motivo
         #String adminResponsable
         #boolean activa
-        -static int contadorSanciones$+static int getSiguienteId()$ int
-        +abstract boolean aplicarEfecto()*
+        -int contadorSanciones$+int getSiguienteId()$
+        +boolean aplicarEfecto()*
         +revocar(String motivoPerdon) void
         +gettersAndSetters()
     }
