@@ -43,3 +43,42 @@ No. Paper permite desarrollar plugins en Java, Kotlin, Groovy y Scala. El uso de
 
 **Respuesta:**  
 Sí. Fabric permite desarrollar mods utilizando Java y, técnicamente, *Skill Issue Admin* podría implementarse como un mod server-side. Sin embargo, dado que los requerimientos principales corresponden a administración y lógica del servidor, un plugin de Paper sigue siendo una alternativa más directa para este proyecto.
+
+Bitacora de IA de la entrega dos del proyecto "Skill Issue Admin":
+
+## 
+
+`Inteligencia Artificial Usada`: ChatGPT.
+
+### 6. Propuesta para la gestión de reportes mediante interfaces gráficas
+
+### Reporte de IA: Felipe Camacho
+
+`Inteligencia Artificial Usada`: ChatGPT.
+
+`Prompt`: *Dame una idea para este requerimiento que planteamos para que el server siga siendo "jugable" para los mods y que no les salgan chorrocientos reportes en pantalla a la vez: El sistema debe permitir al administrador atender los reportes recibidos, cambiando su estado hasta resolverlos o descartarlos. Tengo la idea de que se pueda abrir como un inventario y que se ordenen los jugadores por cantidad de reportes para que puedan ser atendidos por "prioridad"... qué tan viable es esa idea? Y que propondrías tu?*
+
+**Respuesta:** La idea de utilizar un inventario gráfico para gestionar los reportes es viable y encaja con el objetivo del plugin: administrar la moderación sin interrumpir la experiencia de juego. Se propuso implementar un centro de reportes accesible mediante el comando `/reportes`, desde el cual los moderadores puedan consultar y gestionar los casos pendientes.
+
+La interfaz principal podría representar a cada jugador reportado mediante su cabeza de Minecraft. La descripción del objeto mostraría la cantidad de reportes recibidos, los motivos y la hora del reporte más reciente. Los casos se organizarían por prioridad y se incluirían botones para navegar entre páginas.
+
+Se propuso clasificar los reportes en tres niveles de prioridad:
+
+- **Alta:** reportes urgentes o múltiples reportes recientes.
+- **Media:** jugadores con varios reportes pendientes.
+- **Baja:** reportes aislados sin indicios de urgencia.
+
+Sin embargo, la cantidad de reportes no debe considerarse una prueba de culpabilidad. Por ejemplo, varios reportes coordinados contra un jugador inocente no deberían desplazar automáticamente un caso potencialmente más grave.
+
+Al seleccionar un jugador, se abriría una segunda interfaz que permitiría consultar sus reportes individuales, incluyendo el motivo, el reportante, la hora y las evidencias disponibles. Desde esta interfaz, el moderador podría cambiar el estado del reporte a `EN_REVISION`, resolverlo o descartarlo si no procede.
+
+Para evitar interrupciones durante el juego, también se propusieron las siguientes medidas:
+
+1. **Notificaciones agrupadas:** evitar que aparezca un mensaje por cada reporte recibido; en su lugar, acumularlos en la interfaz.
+2. **Notificaciones discretas:** mostrar mensajes breves, como «Hay 3 reportes pendientes», con la posibilidad de desactivarlos.
+3. **Actualización de datos:** consultar los reportes más recientes al abrir la interfaz, evitando que el moderador tenga que reiniciar el menú para ver los cambios.
+
+Para la primera versión se recomendó priorizar la creación del inventario de reportes pendientes, el ordenamiento por antigüedad y cantidad de reportes recientes, la interfaz de detalle, las acciones para revisar, resolver y descartar casos, y la persistencia de los reportes y sus estados después de reiniciar el servidor.
+
+**Conclusión:** La propuesta es técnicamente viable mediante Paper/Bukkit y permite relacionar los requerimientos del plugin con los conceptos de la segunda entrega académica: entidades de negocio, colecciones, operaciones CRUD y persistencia. Se recomienda conservar la idea del inventario gráfico, complementándola con un sistema de prioridades y una interfaz para gestionar los reportes individuales. Los criterios definitivos deberán validarse con los requerimientos del proyecto antes de su implementación.
+
