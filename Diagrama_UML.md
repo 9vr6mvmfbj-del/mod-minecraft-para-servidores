@@ -101,7 +101,7 @@ classDiagram
         revocarSancion()
         consultarHistorial()
         calcularReincidencia()
-}
+    }
 
     %% CLASE DE PERSISTENCIA
     class PersistenciaArchivo {
