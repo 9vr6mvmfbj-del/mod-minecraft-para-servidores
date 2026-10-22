@@ -108,6 +108,7 @@ classDiagram
     %% RELACIONES Y JERARQUÍAS
     Sancion <|-- Baneo : extends
     Sancion <|-- Mute : extends
+    Sancion <|-- Advertido : extends
     IPersistencia <|.. PersistenciaArchivo : implements
     Jugador "1" *-- "0..*" Sancion : contiene en historial
     Jugador "1" --> "1" Rango : tiene
